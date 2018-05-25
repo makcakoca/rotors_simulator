@@ -29,6 +29,47 @@ doi="10.1007/978-3-319-26054-9_23",
 url="http://dx.doi.org/10.1007/978-3-319-26054-9_23"
 }
 ```
+Installation Instructions - Ubuntu 18.04 with ROS Melodic
+---------------------------------------------------------
+ 1. Install and initialize ROS melodic desktop full, additional ROS packages, catkin-tools, and wstool:
+
+ ```
+ $ sudo sh -c 'echo "deb http://packages.ros.org/ros/ubuntu `lsb_release -sc` main" > /etc/apt/sources.list.d/ros-latest.list'
+ $ wget http://packages.ros.org/ros.key -O - | sudo apt-key add -
+ $ sudo apt-get update
+ $ sudo apt-get install ros-melodic-desktop-full ros-melodic-joy* ros-melodic-octomap-* ros-melodic-mavlink python-wstool python-catkin-tools protobuf-compiler libgoogle-glog-dev ros-melodic-control-toolbox
+ $ sudo rosdep init
+ $ rosdep update
+ $ source /opt/ros/melodic/setup.bash
+ ```
+ 2. If you don't have ROS workspace yet you can do so by
+
+ ```
+ $ mkdir -p ~/catkin_ws/src
+ $ cd ~/catkin_ws/src
+ $ catkin_init_workspace  # initialize your catkin workspace
+ $ wstool init
+ $ wget https://raw.githubusercontent.com/makcakoca/rotors_simulator/melodic-devel/rotors_hil.rosinstall
+ $ wstool merge rotors_hil.rosinstall
+ $ wstool update
+ ```
+
+  > **Note** On OS X you need to install yaml-cpp using Homebrew `brew install yaml-cpp`.
+
+ 3. Build your workspace with `python_catkin_tools` (therefore you need `python_catkin_tools`)
+
+   ```
+   $ cd ~/catkin_ws/
+   $ catkin build
+   ```
+
+ 4. Add sourcing to your `.bashrc` file
+
+   ```
+   $ echo "source ~/catkin_ws/devel/setup.bash" >> ~/.bashrc
+   $ source ~/.bashrc
+   ```
+
 Installation Instructions - Ubuntu 16.04 with ROS Kinetic
 ---------------------------------------------------------
  1. Install and initialize ROS kinetic desktop full, additional ROS packages, catkin-tools, and wstool:

@@ -17,6 +17,35 @@ project(rotors_gazebo_plugins)
 
 #message(STATUS "rotors_gazebo_plugins CMakeLists.txt called.")
 
+# Find Ignition Math
+find_package(ignition-math4 REQUIRED)
+list(APPEND @PKG_NAME@_INCLUDE_DIRS ${IGNITION-MATH_INCLUDE_DIRS})
+list(APPEND @PKG_NAME@_LIBRARY_DIRS ${IGNITION-MATH_LIBRARY_DIRS})
+list(APPEND @PKG_NAME@_LIBRARIES ${IGNITION-MATH_LIBRARIES})
+
+# Find Ignition Transport
+find_package(ignition-transport4 REQUIRED)
+list(APPEND @PKG_NAME@_INCLUDE_DIRS ${IGNITION-TRANSPORT_INCLUDE_DIRS})
+list(APPEND @PKG_NAME@_LIBRARY_DIRS ${IGNITION-TRANSPORT_LIBRARY_DIRS})
+list(APPEND @PKG_NAME@_LIBRARIES ${IGNITION-TRANSPORT_LIBRARIES})
+
+# Find Ignition Msgs
+find_package(ignition-msgs1 REQUIRED)
+list(APPEND @PKG_NAME@_INCLUDE_DIRS ${IGNITION-MSGS_INCLUDE_DIRS})
+list(APPEND @PKG_NAME@_LIBRARY_DIRS ${IGNITION-MSGS_LIBRARY_DIRS})
+list(APPEND @PKG_NAME@_LIBRARIES ${IGNITION-MSGS_LIBRARIES})
+
+# Find Ignition Common
+find_package(ignition-common1 REQUIRED)
+list(APPEND @PKG_NAME@_INCLUDE_DIRS ${ignition-common1_INCLUDE_DIRS})
+list(APPEND @PKG_NAME@_LIBRARY_DIRS ${ignition-common1_LIBRARY_DIRS})
+list(APPEND @PKG_NAME@_LIBRARIES ${ignition-common1_LIBRARIES})
+
+# Find Ignition Fuel Tools
+find_package(ignition-fuel_tools1 REQUIRED)
+list(APPEND @PKG_NAME@_INCLUDE_DIRS ${IGNITION-FUEL_TOOLS_INCLUDE_DIRS})
+list(APPEND @PKG_NAME@_LIBRARY_DIRS ${IGNITION-FUEL_TOOLS_LIBRARY_DIRS})
+list(APPEND @PKG_NAME@_LIBRARIES ${IGNITION-FUEL_TOOLS_LIBRARIES})
 
 # =============================================================================================== #
 # ========================== SET DEFAULTS FOR PASSED-IN VARIABLES =============================== #
